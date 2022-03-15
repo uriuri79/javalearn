@@ -26,4 +26,13 @@ public class Animal {
     void swim(int swimDistance) {
         System.out.println(name + " проплыл " + swimDistance + " метров");
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", runDistance=" + runDistance +
+                ", swimDistance=" + swimDistance +
+                '}';
+    }
 }
