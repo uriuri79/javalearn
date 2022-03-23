@@ -1,25 +1,19 @@
 package lesson2_1;
 
-public class RunningTrack {
-        private int distance;
+public class RunningTrack implements Obstacle{
+    private Integer length;
 
-    public RunningTrack(int distance) {
-        this.distance = distance;
+    public RunningTrack(Integer length) {
+        this.length = length;
     }
 
-    public int getDistance() {
-        return distance;
+    public Integer getLength() {
+        return length;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
+    @Override
+    public void overcome(Playable player) {
+        player.run(this);
     }
+}
 
-    public void runComplete(int runDistance) {
-            if (runDistance >= distance) {
-                System.out.println("Участник успешно пробежал");
-            } else {
-                System.out.println("Участник не смог пробежать");
-            }
-        }
-    }
