@@ -15,7 +15,7 @@ public class Human implements Playable{
     @Override
     public void jump(Barrier height) {
         if (jumpHeight < height.getHeight()) {
-            System.out.println("Человек " + name + " не перепрыгнул");
+            System.out.println("Человек " + name + " не перепрыгнул, дальше не участвует");
             isPlaying = false;
         } else {
             System.out.println("Человек " + name + " перепрыгнул");
@@ -24,9 +24,16 @@ public class Human implements Playable{
     }
 
     @Override
+    public void checkedWin() {
+        if (this.isPlaying == false) {
+            System.out.println(name + " не участвует");
+        }
+    }
+
+    @Override
     public void run(RunningTrack track) {
         if (runDistance < track.getLength()) {
-            System.out.println("Человек " + name + " не пробежал");
+            System.out.println("Человек " + name + " не пробежал, дальше не участвует");
             isPlaying = false;
         } else {
             System.out.println("Человек " + name +" пробежал");

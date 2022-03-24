@@ -6,7 +6,7 @@ public class Cat implements Playable{
     private Integer runDistance;
     private boolean isPlaying;
 
-    public Cat(String name, Integer jumpHeight, Integer runDistance) {
+     public Cat(String name, Integer jumpHeight, Integer runDistance) {
         this.name = name;
         this.jumpHeight = jumpHeight;
         this.runDistance = runDistance;
@@ -15,7 +15,7 @@ public class Cat implements Playable{
     @Override
     public void jump(Barrier height) {
         if (jumpHeight < height.getHeight()) {
-            System.out.println("Кот " + name +" не перепрыгнул");
+            System.out.println("Кот " + name +" не перепрыгнул, дальше не участвует");
             isPlaying = false;
         } else {
             System.out.println("Кот " + name +" перепрыгнул");
@@ -24,9 +24,16 @@ public class Cat implements Playable{
     }
 
     @Override
+    public void checkedWin() {
+        if (this.isPlaying == false) {
+            System.out.println(name + " не участвует");
+        }
+    }
+
+    @Override
     public void run(RunningTrack track) {
         if (runDistance < track.getLength()) {
-            System.out.println("Кот " + name + " не пробежал");
+            System.out.println("Кот " + name + " не пробежал, дальше не участвует");
             isPlaying = false;
         } else {
             System.out.println("Кот " + name +" пробежал");

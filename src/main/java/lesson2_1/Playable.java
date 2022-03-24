@@ -5,5 +5,5 @@ public interface Playable {
 
     void jump(Barrier height);
 
-
+    void checkedWin();
 }

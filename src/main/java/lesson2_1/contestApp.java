@@ -20,7 +20,9 @@ public class contestApp {
         for (Obstacle obstacle : obstacles) {
             for (Playable player : players)  {
                 obstacle.overcome(player);
+                player.checkedWin();
+                }
             }
         }
     }
-}
+
